@@ -1,14 +1,77 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>��¼</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>登录</title>
+
+<script type="text/javascript">
+var i= 1;
+function _advshow(){
+	
+	
+	
+	var img = document.getElementById("img");
+	
+	if(i<3){
+		i++;
+	}else{
+		i=1;
+	}
+	
+	img.src = "img/"+i+".png";
+
+}
+
+window.onload = function(){
+	setInterval("_advshow()", 1000);
+}
+
+function _open(){
+	alert("saf");
+	window.open("login.html"); 
+}
+
+
+	//绑定窗口的滚动事件
+	window.onscroll = function(){
+		//获取滚动的距离
+		var scrollTop = document.body.scrollTop;
+		//设置广告距离页面顶部的位置
+		document.getElementById("img").style.top=300+scrollTop+"px";
+	}
+	
+	</script>
 </head>
-<body>
+
+<body style="height: 3000px;">
+
+	<a id="toptop">頂部</a>
+	<a href="#bottom">访问底部</a>
+	<input type="button"  onclick="_open()" value = "dakaibaidu"/>
+
+	<h1>标题1</h1>
+	<h2>标题2</h2>
+	<h3 align="right">标题3</h3>
+	<font size="12" color="red" face="黑体"> This is a 紅色 </font>
+	<br /> 
+	<hr />
+
 	<form action="http://localhost:8080/voilet/hello" method="post">
-		�û���<input type="text" name="username" /><br /> ���룺<input
+		用户：<input type="text" name="username" /><br /> 密码：<input
 			type="password" name="password" /><br /> <input type="submit"
-			value="��¼" />
+			value="登录" /><br /> 头像： <input type="file" /> <input type="hidden" />
+		<input type="reset" />
 	</form>
+	
+	<img id="img" alt="帅哥不是吗" src="img/1.png" style="position:absolute;width:200px;top:300px;left:500px"/>
+	
+	
+	<a href="http://www.baidu.com/" target="_blank">首頁</a>
+	<a href="mailto:2196342343@qq.com" target="_blank">联系我们</a>
+	<a href="javascript:void(0);" onclick="alert('nihao!');"
+		target="_blank">联系我们</a>
+
+	<a id="bottom">底部</a>
+	<a href="#toptop">访问顶部</a>
 </body>
 </html>

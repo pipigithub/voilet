@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>管理员页面</title>
+
+<script type="text/javascript">
+	function _delete(a) {
+
+		var _tr = a.parentNode.parentNode;
+		_tr.parentNode.removeChild(_tr);
+
+	}
+
+	function _add() {
+		var _tr = document.createElement("tr");
+		var _name = document.createElement("td");
+		var _tel = document.createElement("td");
+		var _ip = document.createElement("td");
+		var _del = document.createElement("td");
+
+		var name = document.getElementById("user").value;
+		var tel = document.getElementById("tel").value;
+		var ip = document.getElementById("ip").value;
+
+		_name.innerHTML = name;
+		_tel.innerHTML = tel;
+		_ip.innerHTML = ip;
+		_del.innerHTML = "<a href='javascript:void(0)' onclick='_delete(this)'>刪除</a>";
+
+		_tr.appendChild(_name);
+		_tr.appendChild(_tel);
+		_tr.appendChild(_ip);
+		_tr.appendChild(_del);
+
+		document.getElementById("usertable").appendChild(_tr);
+	}
+</script>
+
+</head>
+<body>
+
+
+
+	用戶：
+	<input id="user" type="text"> 電話：
+	<input id="tel" type="tel"> ip：
+	<input id="ip" type="number">
+
+
+	<br />
+	<input type="button" onclick="_add()" value="添加">
+
+
+	<table id="usertable" border="1">
+		<tr>
+			<td>用户名</td>
+			<td>手机号</td>
+			<td>ip地址</td>
+			<td>操作</td>
+		</tr>
+	</table>
+
+
+
+
+</body>
+</html>
