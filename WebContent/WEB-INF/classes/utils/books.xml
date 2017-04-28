@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<books> 
+  <book> 
+    <name>黄瓜的用法</name>  
+    <author>佳佳</author>  
+    <price>12.3</price> 
+  </book>  
+  <book> 
+    <name>收到甲方</name>  
+    <author>多少分能进你</author>  
+    <price>55</price> 
+  </book>  
+  <book>
+    <name>收到甲方</name>
+    <author>多少分能进你</author>
+    <price>55</price>
+  </book>
+</books>

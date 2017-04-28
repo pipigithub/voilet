@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT books (book+)>
+ <!ELEMENT book (name,author,price)> 
+ <!ELEMENT name (#PCDATA)>
+ <!ELEMENT author (#PCDATA)> 
+ <!ELEMENT price (#PCDATA)> 
+ <!ATTLIST book addr CDATA "藏经阁" 
+		       aaa (a|b) #REQUIRED	 
+ 		       bbb CDATA  #FIXED "abc"> 
+ <!ENTITY price "9.9"> 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE books SYSTEM "books.dtd">
+<books>
+	<book addr="少林寺" aaa="a" bbb="abc">
+		<name>红楼梦</name>
+		<author>曹雪芹</author>
+		<price>&price;
+		</price>
+	</book>
+	<book aaa="b">
+		<name>黄瓜的用法</name>
+		<author>佳佳</author>
+		<price>&price;
+		</price>
+	</book>
+</books>

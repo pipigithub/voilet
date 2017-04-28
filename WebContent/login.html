@@ -5,15 +5,162 @@
 <title>Insert title here</title>
 
 <script type="text/javascript">
-function _clock(){
-	document.write(new Date().toLocaleString());
-}
+	var id_of_Interval;
 
-setInterval("_clock()", 1000);
+	function _clock() {
+		var timediv = document.getElementById("time");
+		var time = new Date().toLocaleString();
+		timediv.innerHTML = time;
+	}
 
+	function start() {
+		id_of_Interval = setInterval("_clock()", 1000);
+	}
+
+	function stop() {
+		clearInterval(id_of_Interval);
+	}
+
+	// 给用户名增加点击事件对应的函数
+	function func() {
+		var usernameVal = document.getElementById("user").value;
+		// 判断
+		if (usernameVal == "请输入用户名") {
+			document.getElementById("user").value = "";
+		}
+	}
+
+	// 给用户名标签对象绑定离焦事件对应的函数
+	// 判断用户名的格式是否正确, 返回值应该是boolean类型
+	function checkuser() {
+		// 定义一个标志位,初始值为false,表示不合法
+		var flag = false;
+
+		// 获取用户输入的值
+		var usernameVal = document.getElementById("user").value;
+		// 用户名必须是4~12位的字母数字下划线的组合!
+		if (usernameVal.match("^\\w{4,12}$")) {
+			// 合法
+			// 取消错误提示信息
+			document.getElementById("userspan").innerHTML = "";
+			// 修改标志位
+			flag = true;
+		} else {
+			// 不合法 提示用户名格式不正确!
+			document.getElementById("userspan").innerHTML = "<font color='red'>用户名必须是4~12位的字母数字下划线的组合!</font>";
+		}
+
+		return flag;
+	}
+
+	// 需求: 校验性别是必填项 返回值也是boolean类型
+	function checksex() {
+		// 定义一个标志位,初始值为false,表示不合法
+		var flag = false;
+
+		// 获取性别标签数组
+		var sexArr = document.getElementsByName("sex");
+		// 遍历
+		for (var i = 0; i < sexArr.length; i++) {
+			if (sexArr[i].checked) {
+				// 选中
+				flag = true;
+			}
+		}
+
+		// 判断
+		if (!flag) {
+			// 如果没有选中性别 提示性别不得为空
+			document.getElementById("sexpan").innerHTML = "<font color='red'>性别是必选项!</font>";
+		} else {
+			// 如果选中性别, 取消错误提示
+			document.getElementById("sexpan").innerHTML = "";
+		}
+
+		return flag;
+	}
+
+	// 需求: 校验表单信息
+	function validate() {
+		// 初始化标识位 为false ,不通过
+		var flag = false;
+
+		// 如果通过所有的校验,将标识位修改成true
+		if (checkuser() && checksex()) {
+			flag = true;
+		}
+
+		return flag;
+	}
 </script>
 </head>
 <body>
 
+	<div id="time"></div>
+	<input type="button" onclick="start()" value="start">
+	<input type="button" onclick="stop()" value="stop">
+
+	<fieldset>
+		<legend>注册页面</legend>
+		<!-- 在form标签中有个默认的事件 -->
+		<form action="http://127.0.0.1:9090" method="post"
+			onsubmit="return validate();">
+			<table>
+				<tr>
+					<td>用户名称：</td>
+					<td><input id="user" type="text" name="user" value="请输入用户名"
+						onclick="func()" onblur="checkuser()" /> <span id="userspan"></span>
+					</td>
+				</tr>
+
+				<tr>
+					<td>用户密码：</td>
+					<td><input id="pwd" type="text" name="pwd" onblur="checkpwd()" />
+						<span id="pwdspan"></span></td>
+				</tr>
+
+				<tr>
+					<td>确认密码：</td>
+					<td><input id="repwd" type="text" name="repwd"
+						onblur="checkrepwd()" /> <span id="repwdspan"></span></td>
+				</tr>
+
+				<tr>
+					<td>选择性别：</td>
+					<td><input type="radio" name="sex" value="nan"
+						onchange="checksex()" />男 <input type="radio" name="sex"
+						value="nv" onchange="checksex()" />女 <span id="sexpan"></span></td>
+				</tr>
+				<tr>
+					<td>选择爱好：</td>
+					<td><input type="checkbox" name="hobby" value="C" />C <input
+						type="checkbox" name="hobby" value="C++" />C++ <input
+						type="checkbox" name="hobby" value="Java" />Java <input
+						type="checkbox" name="hobby" value="PHP" />PHP <input
+						type="checkbox" name="hobby" value=".net" />.net <span id="hspan"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>选择国家：</td>
+					<td><select name="country">
+							<option>---请选择国家----</option>
+							<option value="CN">中国</option>
+							<option value="US">美国</option>
+							<option value="EN">英国</option>
+					</select></td>
+				</tr>
+
+				<tr>
+					<td>自我评价：</td>
+					<td><textarea rows="10" cols="40" name="desc">
+						</textarea></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="注册" /></td>
+					<td><input type="reset" value="重置" /></td>
+				</tr>
+			</table>
+		</form>
+	</fieldset>
 </body>
 </html>

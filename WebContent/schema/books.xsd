@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/books"
+	xmlns:tns="http://www.example.org/books" elementFormDefault="qualified">
+
+	<element name="books">
+		<complexType>
+			<sequence>
+				<element name="book" maxOccurs="unbounded">
+					<complexType>
+						<sequence>
+							<element name="name"></element>
+							<element name="author"></element>
+							<element name="price"></element>
+						</sequence>
+						<attribute name="addr" type="string">
+						</attribute>
+					</complexType>
+				</element>
+
+			</sequence>
+
+		</complexType>
+	</element>
+
+
+
+</schema>

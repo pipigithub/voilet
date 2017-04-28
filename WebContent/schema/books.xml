@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books xmlns="http://www.example.org/books" 
+       xsi:schemaLocation="http://www.example.org/books books.xsd"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<book addr="sdfs">
+		<name>红楼梦</name>
+		<author>曹雪芹</author>
+		<price>9.9</price>
+	</book>
+	<book>
+		<name>黄瓜的用法</name>
+		<author>佳佳</author>
+		<price>12.3</price>
+	</book>
+</books>
